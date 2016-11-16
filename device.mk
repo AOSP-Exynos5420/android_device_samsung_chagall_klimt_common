@@ -211,6 +211,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libnetcmdiface \
     macloader
+#gpsd compat
+PRODUCT_PACKAGES += \
+    libcrypto_old \
+    libsol
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=320
