@@ -226,11 +226,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.bq.gpu_to_cpu_unsupported=1
 
-# set default USB configuration
-# ORG
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
-
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.force_msaa=true
 
