@@ -33,14 +33,8 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
 
-# Vold
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun0/file
-
 # Audio
 BOARD_USES_LIBMEDIA_WITH_AUDIOPARAMETER := true
-
-# Bionic
-TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # RIL
 BOARD_PROVIDES_LIBRIL := true
@@ -137,11 +131,7 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 
 # Graphics
 USE_OPENGL_RENDERER := true
-BOARD_EGL_CFG := $(LOCAL_PATH)/egl.cfg
-NUM_FRAMEBUFFER_SURFACE_BUFFERS := 5
-
-# Renderscript
-BOARD_OVERRIDE_RS_CPU_VARIANT_32 := cortex-a53
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
 # Exynos display
 BOARD_USES_VIRTUAL_DISPLAY := true
@@ -198,8 +188,6 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 # PowerHAL
 TARGET_POWERHAL_VARIANT := chagalllte
 
-
-
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.universal5420
@@ -232,10 +220,3 @@ ENABLE_WEBGL := true
 ##BOARD_USES_WFD_SERVICE := true
 # OK MERGED
 BOARD_USES_WFD := true
-
-# Enable Minikin text layout engine (will be the default soon)
-USE_MINIKIN := true
-
-# Include an expanded selection of fonts
-EXTENDED_FONT_FOOTPRINT := true
-
