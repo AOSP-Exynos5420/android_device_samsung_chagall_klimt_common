@@ -218,8 +218,8 @@ BOARD_SEPOLICY_DIRS += \
 	device/samsung/chagall-klimt-common/sepolicy
 
 # Seccomp filters
-BOARD_SECCOMP_POLICY += \
-	device/samsung/chagall-klimt-common/seccomp
+#BOARD_SECCOMP_POLICY += \
+#	device/samsung/chagall-klimt-common/seccomp
 
 # SurfaceFlinger - NOT USED !!!
 ##BOARD_USES_SYNC_MODE_FOR_MEDIA := true
