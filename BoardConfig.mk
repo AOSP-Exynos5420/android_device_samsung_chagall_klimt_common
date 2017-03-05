@@ -36,6 +36,9 @@ TARGET_CPU_SMP := true
 # Audio
 BOARD_USES_LIBMEDIA_WITH_AUDIOPARAMETER := true
 
+# Text reloaction support
+TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
+
 # RIL
 BOARD_PROVIDES_LIBRIL := true
 # hardware/samsung/ril
