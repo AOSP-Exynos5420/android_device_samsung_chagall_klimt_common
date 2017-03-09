@@ -3,6 +3,10 @@
 # the init.universal5420.rc file closer to stock.
 #
 
+on init
+
+    symlink /system/vendor/lib/egl /gl
+
 on post-fs-data
 # SA, System SW, SAMSUNG create log directory
     mkdir /data/log 0775 system log
