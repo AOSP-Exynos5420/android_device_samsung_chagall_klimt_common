@@ -196,6 +196,10 @@ PRODUCT_PACKAGES += \
     libsecril-client \
     libsecril-client-sap
 
+# __popcountsi2 method, for the r7p0 egl blob
+PRODUCT_PACKAGES += \
+    libpopcountsi2
+
 PRODUCT_PACKAGES += \
     strace
 
@@ -232,4 +236,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #    debug.sf.disable_hwc=1
 
 $(call inherit-product, vendor/google/google-vendor.mk)
-
