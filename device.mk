@@ -134,6 +134,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libstlport
 
+# IR Blaster
 PRODUCT_PACKAGES += \
     consumerir.universal5420
 
