@@ -154,9 +154,6 @@ PRODUCT_PACKAGES += \
     lights.universal5420
 
 PRODUCT_PACKAGES += \
-    hwtest
-
-PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
 # Filesystem management tools
