@@ -85,39 +85,39 @@ service iprenew_p2p /system/bin/dhcpcd -n
     oneshot
 
 # start for WiFi MFG (TestMode)
-service mfgloader /system/bin/mfgloader
-    class main
-    disabled
-    oneshot
+#service mfgloader /system/bin/mfgloader
+#    class main
+#    disabled
+#    oneshot
 
-service wlandutservice /system/bin/wlandutservice
-    class main
-    user system
-    group wifi net_raw net_admin system inet
-    disabled
-    oneshot
+#service wlandutservice /system/bin/wlandutservice
+#    class main
+#    user system
+#    group wifi net_raw net_admin system inet
+#    disabled
+#    oneshot
 
-service macloader /system/bin/macloader
-    class main
-    oneshot
+#service macloader /system/bin/macloader
+#    class main
+#    oneshot
 
-on property:init.svc.macloader=stopped
-    chown system root /data/.cid.info
-    chmod 0664 /data/.cid.info
-    chown system root /data/.rev
-    chmod 0664 /data/.rev
+#on property:init.svc.macloader=stopped
+#    chown system root /data/.cid.info
+#    chmod 0664 /data/.cid.info
+#    chown system root /data/.rev
+#    chmod 0664 /data/.rev
 # end of WiFi MFG (TestMode)
 
-service olsrd /system/bin/olsrd -f /etc/wifi/olsrd.conf
-    class main
-    disabled
-    oneshot
+#service olsrd /system/bin/olsrd -f /etc/wifi/olsrd.conf
+#    class main
+#    disabled
+#    oneshot
 
-on property:init.svc.dhcpcd_ibss=running
-    start olsrd
+#on property:init.svc.dhcpcd_ibss=running
+#    start olsrd
 
-on property:init.svc.dhcpcd_ibss=stopped
-    stop olsrd
+#on property:init.svc.dhcpcd_ibss=stopped
+#    stop olsrd
 
 service hostapd /system/bin/hostapd -dddd /data/hostapd/hostapd.conf
     class late_start
