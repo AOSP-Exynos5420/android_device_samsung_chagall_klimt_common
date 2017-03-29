@@ -40,7 +40,7 @@ BOARD_USES_LIBMEDIA_WITH_AUDIOPARAMETER := true
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 
 # Linker
-LINKER_FORCED_SHIM_LIBS := /system/vendor/lib/egl/libGLES_mali.so|libpopcountsi2.so
+#LINKER_FORCED_SHIM_LIBS := /system/vendor/lib/egl/libGLES_mali.so|libpopcountsi2.so
 
 # RIL
 BOARD_PROVIDES_LIBRIL := true
