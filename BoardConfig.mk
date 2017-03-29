@@ -68,46 +68,19 @@ WIFI_DRIVER_NVRAM_PATH_PARAM     := "/sys/module/dhd/parameters/nvram_path"
 WIFI_DRIVER_NVRAM_PATH           := "/system/etc/wifi/nvram_net.txt"
 
 # Camera
-# frameworks/av/services/camera/libcameraservice/Android.mk
-# frameworks/av/services/camera/libcameraservice/device1/CameraHardwareInterface.h
-# frameworks/native/libs/binder/Android.mk
-# frameworks/native/include/binder/IMemory.h
-# frameworks/native/libs/binder/IMemory.cpp
-# OK MERGED
 BOARD_NEEDS_MEMORYHEAPION := true
 
-##ALL GLOBAL_CFLAGS SHOULD MOVE TO LOCAL_CFLAGS OR build/core/config.mk
-#https://groups.google.com/forum/#!topic/android-building/U_IkbMv-_MY
-
-# NOT USED
-##COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
-
-# NOT USED
-##COMMON_GLOBAL_CFLAGS += -DSAMSUNG_CAMERA_HARDWARE
-
-# NOT USED
-##COMMON_GLOBAL_CFLAGS += -DSAMSUNG_DVFS
-
-# Recovery NOT USED
-#COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
-
 # Force the screenshot path to CPU consumer
-# frameworks/native/libs/gui/SurfaceComposerClient.cpp
-#COMMON_GLOBAL_CFLAGS += -DFORCE_SCREENSHOT_CPU_PATH
+TARGET_FORCE_SCREENSHOT_CPU_PATH := true
 
 # Media
 # Used if using slsi-cm  # use format from fw/native
-#NOT USED
 #COMMON_GLOBAL_CFLAGS += -DUSE_NATIVE_SEC_NV12TILED
-
-# NOT USED
-##COMMON_GLOBAL_CFLAGS += -DWIDEVINE_PLUGIN_PRE_NOTIFY_ERROR
 
 
 # Kernel
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
-TARGET_KERNEL_CONFIG := cyanogenmod_chagalllte_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/chagalllte
 
 # Charging mode
@@ -117,7 +90,6 @@ BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charg
 BOARD_BATTERY_DEVICE_NAME := battery
 
 # Bootloader
-TARGET_OTA_ASSERT_DEVICE := chagalllte
 TARGET_BOOTLOADER_BOARD_NAME := universal5420
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
@@ -138,6 +110,7 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 # Graphics
 USE_OPENGL_RENDERER := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
 # Exynos display
 BOARD_USES_VIRTUAL_DISPLAY := true
@@ -147,11 +120,6 @@ BOARD_USES_HWC_SERVICES := true
 
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
-
-# Init
-# NOT USED
-##TARGET_NR_SVC_SUPP_GIDS := 20
-
 
 # OpenMAX Video
 BOARD_USE_STOREMETADATA := true
@@ -166,33 +134,19 @@ BOARD_USE_QOS_CTRL := false
 BOARD_USE_S3D_SUPPORT := true
 BOARD_USE_VP8ENC_SUPPORT := true
 
-# Not yet compatible with art
-#WITH_DEXPREOPT := true
-#DONT_DEXPREOPT_PREBUILTS := true
+# Lower filesize by limiting dex-preoptimization
+WITH_DEXPREOPT := true
+WITH_DEXPREOPT_BOOT_IMG_ONLY := true
 
 # If using cm vold we support exfat and ntfs
 TARGET_KERNEL_HAVE_EXFAT := true
 TARGET_KERNEL_HAVE_NTFS := true
 
-
-#default TARGET_USERIMAGES_USE_EXT4 := true
-#default BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := squashfs
-#default BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-
-#F2FS ->
-#TARGET_USERIMAGES_USE_EXT4 := false
-#TARGET_USERIMAGES_USE_F2FS := true
-#BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := f2fs
-#F2FS <-
-
-BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 9639936 
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2506096640
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 12629049344
+# Partitions
 BOARD_FLASH_BLOCK_SIZE := 4096
 
 # PowerHAL
-TARGET_POWERHAL_VARIANT := chagalllte
+TARGET_POWERHAL_VARIANT := samsung
 
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 BOARD_HAS_NO_SELECT_BUTTON := true
@@ -209,16 +163,10 @@ BOARD_USES_GSC_VIDEO := true
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
-	device/samsung/chagall-klimt-common/sepolicy
-
-# SurfaceFlinger - NOT USED !!!
-##BOARD_USES_SYNC_MODE_FOR_MEDIA := true
+    device/samsung/chagall-klimt-common/sepolicy
 
 # Webkit
 ENABLE_WEBGL := true
 
 # WFD
-# NOT USED
-##BOARD_USES_WFD_SERVICE := true
-# OK MERGED
 BOARD_USES_WFD := true

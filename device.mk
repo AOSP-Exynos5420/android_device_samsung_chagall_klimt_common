@@ -14,6 +14,7 @@
 # limitations under the License.
 #
 
+# Ramdisk
 PRODUCT_PACKAGES += \
     init.samsung.rc \
     init.universal5420.rc \
@@ -31,6 +32,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/chagall-klimt-common/configs/idc/Synaptics_HID_TouchPad.idc:system/usr/idc/Synaptics_HID_TouchPad.idc
 
+# Audio config
 PRODUCT_COPY_FILES += \
     device/samsung/chagall-klimt-common/audio/audio_effects.conf:system/etc/audio_effects.conf
 
@@ -80,6 +82,7 @@ PRODUCT_CHARACTERISTICS := tablet
 DEVICE_PACKAGE_OVERLAYS := \
     device/samsung/chagall-klimt-common/overlay-common
 
+# Wifi
 PRODUCT_COPY_FILES += \
     device/samsung/chagall-klimt-common/configs/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     device/samsung/chagall-klimt-common/configs/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
@@ -101,12 +104,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Exchange
 
+# Media
 PRODUCT_PACKAGES += \
     libstagefrighthw \
     libcsc \
     libExynosOMX_Core \
     libOMX.Exynos.MP3.Decoder
 
+# Audiohal
 PRODUCT_PACKAGES += \
     audio.primary.universal5420 \
     audio.a2dp.default \
@@ -114,23 +119,24 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     tinymix
 
+# Camera
 PRODUCT_PACKAGES += \
     libion_exynos \
     camera.universal5420 \
     libhwjpeg
 
-#As long as we have no source for this, do not install
-#    libexynoscamera
-
+# GPS
 PRODUCT_PACKAGES += \
     gps.universal5420
 
+# Graphics
 PRODUCT_PACKAGES += \
     libion \
     hwcomposer.exynos5 \
     gralloc.exynos5 \
     memtrack.exynos5
 
+# stlport for L blobs
 PRODUCT_PACKAGES += \
     libstlport
 
@@ -138,38 +144,30 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     consumerir.universal5420
 
+# Fingerprint Sensor
 PRODUCT_PACKAGES += \
     fingerprintd \
     fingerprint.universal5420 \
     ValidityService
 
-#Needed for at least adb on userbuild
+# Needed for at least adb on userbuild
 PRODUCT_PACKAGES += \
     keystore.exynos5
 
+# Power Hal
 PRODUCT_PACKAGES += \
     power.universal5420
 
+# Lights Hal
 PRODUCT_PACKAGES += \
     lights.universal5420
 
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
-
 # Filesystem management tools
 PRODUCT_PACKAGES += \
-    e2fsck
-
-# If using cm vold we support exfat and ntfs
-PRODUCT_PACKAGES += \
-    libfuse
-
-PRODUCT_PACKAGES += \
+    e2fsck \
     libexfat \
     fsck.exfat \
-    mkfs.exfat
-
-PRODUCT_PACKAGES += \
+    mkfs.exfat \
     libntfs-3g \
     fsck.ntfs \
     mkfs.ntfs
@@ -200,6 +198,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libpopcountsi2
 
+# Strace (For Debugging)
 PRODUCT_PACKAGES += \
     strace
 
@@ -211,17 +210,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     sensors.universal5420
 
+# wifi/data
 PRODUCT_PACKAGES += \
-    libnetcmdiface \
-    macloader
-#gpsd compat
-PRODUCT_PACKAGES += \
-    libcrypto_old \
-    libsol
+    libnetcmdiface
 
+# Screen Density
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=320
 
+# Global Carrier
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.carrier=unknown 
 
@@ -229,10 +226,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.bq.gpu_to_cpu_unsupported=1
 
+# Force msaa for games to be supported
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.force_msaa=true
-
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    debug.sf.disable_hwc=1
 
 $(call inherit-product, vendor/google/google-vendor.mk)
